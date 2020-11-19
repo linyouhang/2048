@@ -58,7 +58,7 @@ export default class MoveManager{
               }
               else if(this.isRightSpace(k-1,i,j) && this.gridManager.getTile(k,j).textContent === tile.textContent){
                 let value = tile.textContent *2
-                document.getElementById('score').textContent = Number(document.getElementById('score').textContent)+value
+                document.getElementById('score').textContent = parseInt(document.getElementById('score').textContent)+value
                 this.gridManager.deleteTile(k,j)
                 this.gridManager.updateTile({x: i, y: j},{x: k, y: j, value: value})
                 break
@@ -68,6 +68,7 @@ export default class MoveManager{
         }
       }
     }
+    this.gridManager.creatRandomTile()
     if(this.isOver()){
       if(parseInt(document.getElementById('score').textContent) >parseInt(localStorage.getItem('best'))){
         localStorage.setItem('best', document.getElementById('score').textContent)
@@ -75,7 +76,6 @@ export default class MoveManager{
       document.querySelector('.over').style.display = 'block'
       return
     }
-    this.gridManager.creatRandomTile()
   }
   moveUp(){
     //从上到下遍历网格
@@ -104,6 +104,7 @@ export default class MoveManager{
         }
       }
     }
+    this.gridManager.creatRandomTile()
     if(this.isOver()){
       if(parseInt(document.getElementById('score').textContent) >parseInt(localStorage.getItem('best'))){
         localStorage.setItem('best', document.getElementById('score').textContent)
@@ -111,7 +112,6 @@ export default class MoveManager{
       document.querySelector('.over').style.display = 'block'
       return
     }
-    this.gridManager.creatRandomTile()
   }
   moveDown(){
     //从下到上遍历网格
@@ -130,7 +130,7 @@ export default class MoveManager{
               }
               else if(this.isDownSpace(k-1,i,j) && this.gridManager.getTile(i,k).textContent === tile.textContent){
                 let value = tile.textContent *2
-                document.getElementById('score').textContent = Number(document.getElementById('score').textContent)+value
+                document.getElementById('score').textContent = parseInt(document.getElementById('score').textContent)+value
                 this.gridManager.deleteTile(i,k)
                 this.gridManager.updateTile({x: i, y: j},{x: i, y: k, value: value})
                 break
@@ -140,6 +140,7 @@ export default class MoveManager{
         }
       }
     }
+    this.gridManager.creatRandomTile()
     if(this.isOver()){
       if(parseInt(document.getElementById('score').textContent) >parseInt(localStorage.getItem('best'))){
         localStorage.setItem('best', document.getElementById('score').textContent)
@@ -147,7 +148,6 @@ export default class MoveManager{
       document.querySelector('.over').style.display = 'block'
       return
     }
-    this.gridManager.creatRandomTile()
   }
   isDownSpace(k,i,j){
     for(k;k>j;k--){
