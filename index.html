@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
+        };
+      recalc();
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+    })(document, window);
+  </script>
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>2048</h1>
+  </header>
+  <div class="game-container">
+    <div class="wrap" id="wrap">
+      <div class="row">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+      </div>
+      <div class="row">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+      </div>
+      <div class="row">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+      </div>
+      <div class="row">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+      </div>
+    </div>
+    <div class="tile-container">
+  
+    </div>
+  </div>
+  <div class="foot">
+    <div class="score side">SCORE:<span id="score">0</span></div>
+    <div class="best side">BEST:<span id="best">0</span></div>
+    <button class="newGame" id="newGame">New Game</button>
+  </div>
+  <div class="over">
+    <p>Game Over!</p>
+    <button class="overButton">Try again</button>
+  </div>
+  <footer>
+    <p>by:lin</p>
+    <p>email:<address>linyouhang1212@163.com</address></p>
+  </footer>
+  <script type="module">
+    import application from './js/application.js'
+
+    application()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+export const TWO = 'rgb(238, 228, 218)'
+export const FOUR = 'rgb(237, 224, 200)'
+export const EIGHT = 'rgb(242, 177, 121)'
+export const SIXTEEN = 'rgb(245, 149, 99)'
+export const THIRTY_TWO = 'rgb(246, 124, 95)'
+export const SIXTY_FOUR = 'rgb(246, 94, 59)'
+export const OTHER = 'rgb(237, 207, 114)'
