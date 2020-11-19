@@ -187,27 +187,17 @@ export default class MoveManager{
       for(let i=1;i<5;i++){
         for(let j=1;j<5;j++){
           let tile = self(i,j)
-          if(tile){
-            if(self(i-1,j)){
-              if(self(i-1,j).textContent === tile.textContent){
-                return false
-              }
-              else if(self(i+1,j)){
-                if(self(i+1,j).textContent === tile.textContent){
-                  return false
-                }
-                else if(self(i,j+1)){
-                  if(self(i,j+1).textContent === tile.textContent){
-                    return false
-                  }
-                  else if(self(i,j-1)){
-                    if(self(i,j-1).textContent === tile.textContent){
-                      return fals
-                    }
-                  }
-                }
-              }
-            }
+          if(self(i-1,j)===null?null:self(i-1,j).textContent === tile.textContent){
+            return false
+          }
+          else if(self(i+1,j)===null?null:self(i+1,j).textContent === tile.textContent){
+            return false
+          }
+          else if(self(i,j-1)===null?null:self(i,j-1).textContent === tile.textContent){
+            return false
+          }
+          else if(self(i,j+1)===null?null:self(i,j+1).textContent === tile.textContent){
+            return false
           }
         }
       }
